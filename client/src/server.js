@@ -1,4 +1,3 @@
-import { time } from "console";
 import { createServer } from "mirage";
 
 export default function MirageServer() {
