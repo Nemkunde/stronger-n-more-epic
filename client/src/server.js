@@ -21,11 +21,11 @@ export default function MirageServer() {
                 }))
                 this.get("api/passes", () => ({
                     passes: [
-                        { pass: "Calming Yoga", date: Date, time: time, coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
-                        { pass: "Group Training", date: Date, time: time, coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
-                        { pass: "Cardio", date: Date, time: time, coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
-                        { pass: "Advanced Yoga", date: Date, time: time, coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
-                        { pass: "Boxing", date: Date, time: time, coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
+                        { pass: "Calming Yoga", date: { year: "2023", month: "08", day: "19" }, time: "9.30 AM", coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
+                        { pass: "Group Training", date: { year: "2023", month: "08", day: "19" }, time: "10.50 AM", coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
+                        { pass: "Cardio", date: { year: "2023", month: "08", day: "19" }, time: "1.30 PM", coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
+                        { pass: "Advanced Yoga", date: { year: "2023", month: "08", day: "20" }, time: "11 AM", coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
+                        { pass: "Boxing", date: { year: "2023", month: "08", day: "21" }, time: "5.15 PM", coach: "Strongy McStrong", description: "Random text about the exercise, location and such." },
                     ]
                 }))
             }
