@@ -7,7 +7,7 @@ import footerImage from '../assets/footer-img.jpg';
 const Footer = () => {
   return (
     <div>
-      <footer className="footer-container" style={{position: "absolute", bottom: 0, right: 0, left: 0, display: "flex", height: "200px", justifyContent: "space-between", background: "darkgray",  padding: "1em 2em 2em 2em",}}>
+      <footer className="footer-container" style={{position: "absolute", bottom: 0, right: 0, left: 0, display: "flex", height: "200px", justifyContent: "space-between", background: "gray", color: "white", padding: "1em 2em 2em 2em",}}>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-evenly" }}>
           <img alt="Our Gym Facilities" className="footer-img" src={footerImage} style={{ width: "150px", borderRadius: "3px", boxShadow: "2px 2px 2px #454545"}}></img>
           <p className="footer-company-info">
