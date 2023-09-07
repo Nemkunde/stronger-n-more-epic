@@ -1,22 +1,17 @@
 export default function exportPasses() {
-    const generateID = () => {
-        let ID = Math.floor(Math.random() * 100000);
-        return ID.toString();
-    }
 
-    const passes = [
+
+    const GymClasses = [
         {
-            ID: generateID(),
-            pass: "Calming Yoga",
+            title: "Calming Yoga",
+            coach: "Strongy McStrong",
             day: "monday",
             date: "20230819",
             time: "9.30 AM",
-            coach: "Strongy McStrong",
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Group Training",
+            title: "Group Training",
             day: "sunday",
             date: "20230819",
             time: "10.50 AM",
@@ -24,8 +19,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Cardio",
+            title: "Cardio",
             day: "thursday",
             date: "20230819",
             time: "1.30 PM",
@@ -33,8 +27,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Advanced Yoga",
+            title: "Advanced Yoga",
             day: "monday",
             date: "20230819",
             time: "11 AM",
@@ -42,8 +35,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Boxing",
+            title: "Boxing",
             day: "wednesday",
             date: "20230819",
             time: "5.15 PM",
@@ -51,8 +43,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Boxing",
+            title: "Boxing",
             day: "saturday",
             date: "20230819",
             time: "5.15 PM",
@@ -60,8 +51,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Yoga",
+            title: "Yoga",
             day: "saturday",
             date: "20230819",
             time: "5.15 PM",
@@ -69,8 +59,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Swimming",
+            title: "Swimming",
             day: "saturday",
             date: "20230819",
             time: "5.15 PM",
@@ -78,8 +67,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Boxing",
+            title: "Boxing",
             day: "friday",
             date: "20230819",
             time: "5.15 PM",
@@ -87,8 +75,7 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
         {
-            ID: generateID(),
-            pass: "Boxing",
+            title: "Boxing",
             day: "tuesday",
             date: "20230819",
             time: "5.15 PM",
@@ -96,5 +83,5 @@ export default function exportPasses() {
             description: "Random text about the exercise, location and such.",
         },
     ];
-    return passes
+    return GymClasses;
 }

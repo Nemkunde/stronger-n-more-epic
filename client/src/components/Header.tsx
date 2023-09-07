@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import gym from "../assets/gym.png";
+import  {Button} from '../styles/styles'
 
 type NavProps = {
   btnText: String;
@@ -55,7 +56,7 @@ const Header = ({ btnText }: NavProps) => {
             <li>Contact</li>
           </ul>
         </nav>
-        <button onClick={handleClick}>{btnText}</button>
+        <Button onClick={handleClick}>{btnText}</Button>
       </header>
     </div>
   );
