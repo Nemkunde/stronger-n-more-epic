@@ -1,9 +1,138 @@
 import { createServer } from "miragejs";
 
 let users = [
-    { id: 1, username: "Adam", role: "USER", password: "123" },
-    { id: 2, username: "Bob", role: "ADMIN", password: "123" },
+    { id: 1, username: "Bob", role: "ADMIN", password: "123" },
+    { id: 2, username: "Adam", role: "USER", password: "123", activities: ["boxing", "yoga"] },
+    {
+        id: 3,
+        username: "Yves",
+        role: "USER",
+        password: "123",
+        activities: ["spinning bicycle", "yoga"],
+    },
 ];
+
+let activities = [
+    {
+        id: 1,
+        title: "Boxing",
+        coach: "Erik Eriksson",
+        day: "Monday",
+        date: "20230907",
+        time: "18:00",
+        description: "an amazing activity for you who wants to become strong",
+    },
+
+    {
+        id: 2,
+        title: "Yoga",
+        coach: "Emelie Johansson",
+        day: "Tuesday",
+        date: "20230910",
+        time: "15:00",
+        description: "an amazing activity for you who wants to relax",
+    },
+    {
+        id: 3,
+        title: "Spinning Bicycle",
+        coach: "Ulf Andersson",
+        day: "Wednesday",
+        date: "20230907",
+        time: "18:00",
+        description: "an amazing activity for you who wants to become strong",
+    },
+    {
+        id: 4,
+        title: "Calming Yoga",
+        coach: "Strongy McStrong",
+        day: "Monday",
+        date: "20230819",
+        time: "9.30 AM",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 5,
+        title: "Group Training",
+        day: "Sunday",
+        date: "20230819",
+        time: "10.50 AM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 6,
+        title: "Cardio",
+        day: "Thursday",
+        date: "20230819",
+        time: "1.30 PM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 7,
+        title: "Advanced Yoga",
+        day: "Monday",
+        date: "20230819",
+        time: "11 AM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 8,
+        title: "Boxing",
+        day: "Wednesday",
+        date: "20230819",
+        time: "5.15 PM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 9,
+        title: "Boxing",
+        day: "Saturday",
+        date: "20230819",
+        time: "5.15 PM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 10,
+        title: "Yoga",
+        day: "Saturday",
+        date: "20230819",
+        time: "5.15 PM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 11,
+        title: "Swimming",
+        day: "Saturday",
+        date: "20230819",
+        time: "5.15 PM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 12,
+        title: "Boxing",
+        day: "Friday",
+        date: "20230819",
+        time: "5.15 PM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+    {
+        id: 13,
+        title: "Boxing",
+        day: "Tuesday",
+        date: "20230819",
+        time: "5.15 PM",
+        coach: "Strongy McStrong",
+        description: "Random text about the exercise, location and such.",
+    },
+];
+console.log(activities);
 
 createServer({
     routes() {
@@ -19,8 +148,21 @@ createServer({
             return { user: attrs };
         });
 
-        this.get("/users", () => {
+        this.post("/admin/activity", (schema, request) => {
+            let attrs = JSON.parse(request.requestBody);
+            attrs.id = Math.floor(Math.random() * 100);
+
+            activities.push(attrs);
+            console.log(activities);
+            return { activity: attrs };
+        });
+
+        this.get("/admin/users", () => {
             return users;
+        });
+
+        this.get("admin/activities", () => {
+            return activities;
         });
     },
 });

@@ -12,7 +12,7 @@ type CardProps = {
 const Card = ({ title, date, time }: CardProps) => {
   const [activePopup, setActivePopup] = useState("");
   const [confirmPopup, setConfirmPopup] = useState("");
-  const [color, setColor] = useState("orange")
+  const [color, setColor] = useState("orange");
 
   const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     setActivePopup("SelectClass");
@@ -20,7 +20,7 @@ const Card = ({ title, date, time }: CardProps) => {
 
   const handleOKClick = () => {
     setActivePopup("");
-    setConfirmPopup("ConfirmClass")
+    setConfirmPopup("ConfirmClass");
   };
 
   const handleCancelClick = () => {
@@ -32,7 +32,7 @@ const Card = ({ title, date, time }: CardProps) => {
     //functionality for getting the info into user.activites
     setColor("lightgreen");
     setConfirmPopup("");
-  }
+  };
 
   return (
     <div>
@@ -50,14 +50,14 @@ const Card = ({ title, date, time }: CardProps) => {
         }}>
         <div>
           {activePopup === "SelectClass" && (
-                <PopUpComponent
-                  onOkClick={handleOKClick}
-                  onCancelClick={handleCancelClick}
-                  insertText={
-                    "You are now booking " + title + ". Do you want to continue?"
-                  }
-                />
-              )}
+            <PopUpComponent
+              onOkClick={handleOKClick}
+              onCancelClick={handleCancelClick}
+              insertText={
+                "You are now booking " + title + ". Do you want to continue?"
+              }
+            />
+          )}
         </div>
         <div onClick={handleClick}>
           <p style={{ fontWeight: "bold" }}>{title}</p>
@@ -66,7 +66,21 @@ const Card = ({ title, date, time }: CardProps) => {
         </div>
       </div>
       <div>
-        {confirmPopup === "ConfirmClass" && <PopUpComponent onOkClick={BookSession} onCancelClick={handleCancelClick} insertText={"You have now booked " + title + " on " + date + " at " + time + "."}/>}
+        {confirmPopup === "ConfirmClass" && (
+          <PopUpComponent
+            onOkClick={BookSession}
+            onCancelClick={handleCancelClick}
+            insertText={
+              "You have now booked " +
+              title +
+              " on " +
+              date +
+              " at " +
+              time +
+              "."
+            }
+          />
+        )}
       </div>
     </div>
   );

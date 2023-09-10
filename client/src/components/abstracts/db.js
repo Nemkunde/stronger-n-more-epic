@@ -1,11 +1,9 @@
-export default function exportPasses() {
-
-
+export default function exportSessions() {
     const GymClasses = [
         {
             title: "Calming Yoga",
             coach: "Strongy McStrong",
-            day: "monday",
+            day: "Monday",
             date: "20230819",
             time: "9.30 AM",
             description: "Random text about the exercise, location and such.",

@@ -1,4 +1,5 @@
-export interface GymClass {
+export interface Activity {
+    id: string, 
     title: string; 
     coach: string; 
     day: string, 
