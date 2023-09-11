@@ -15,7 +15,7 @@ const Footer = () => {
           right: 0,
           left: 0,
           display: "flex",
-          height: "200px",
+          height: "250px",
           justifyContent: "space-between",
           background: "gray",
           color: "white",

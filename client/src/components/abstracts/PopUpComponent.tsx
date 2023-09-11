@@ -4,7 +4,7 @@ import  {Button} from '../../styles/styles'
 type PopUpProps = {
   onOkClick: Function;
   onCancelClick: Function;
-  insertText: string;
+  insertText: JSX.Element;
 };
 
 const PopUpComponent = ({
@@ -16,7 +16,7 @@ const PopUpComponent = ({
     <div
       style={{
         width: "500px",
-        height: "200px",
+        height: "250px",
         position: "absolute",
         zIndex: "100",
         background: "gray",
@@ -24,10 +24,12 @@ const PopUpComponent = ({
         top: "22%",
         left: "25%",
         borderRadius: "7px",
-        boxShadow: "2px 2px 1px gray"
+        boxShadow: "2px 2px 1px gray",
+        padding: "1em 2em 1em 2em", 
+        textAlign: "center"
       }}>
-      <p>{insertText}</p>
-      <div style={{ position: "absolute", top: "60%", left: "30%"}}>
+      <div>{insertText}</div>
+      <div style={{ position: "absolute", top: "70%", left: "33%"}}>
         <Button onClick={() => onOkClick()}>Ok</Button>
         <Button onClick={() => onCancelClick()}>Cancel</Button>
       </div>

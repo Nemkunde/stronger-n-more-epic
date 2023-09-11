@@ -1,7 +1,7 @@
 export interface User {
-    id: Number, 
-    username: string, 
-    role: string, 
-    password: string, 
-    activities: [], 
-}
+    id: number;
+    username: string;
+    role: "USER" | "ADMIN";
+    password: string;
+    activities?: string[];
+  }

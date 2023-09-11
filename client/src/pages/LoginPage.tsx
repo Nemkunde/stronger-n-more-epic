@@ -18,7 +18,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-      <Header btnText={"Login"}/>
+      <Header btnText={"Login"} />
       <div
         style={{
           margin: "auto",

@@ -2,7 +2,7 @@ import { createServer } from "miragejs";
 
 let users = [
     { id: 1, username: "Bob", role: "ADMIN", password: "123" },
-    { id: 2, username: "Adam", role: "USER", password: "123", activities: ["boxing", "yoga"] },
+    { id: 2, username: "Adam", role: "USER", password: "123", activities: ["boxing", ""] },
     {
         id: 3,
         username: "Yves",
@@ -19,7 +19,7 @@ let activities = [
         coach: "Erik Eriksson",
         day: "Monday",
         date: "20230907",
-        time: "18:00",
+        time: "07:00",
         description: "an amazing activity for you who wants to become strong",
     },
 
@@ -34,7 +34,7 @@ let activities = [
     },
     {
         id: 3,
-        title: "Spinning Bicycle",
+        title: "Spinning",
         coach: "Ulf Andersson",
         day: "Wednesday",
         date: "20230907",
@@ -47,15 +47,15 @@ let activities = [
         coach: "Strongy McStrong",
         day: "Monday",
         date: "20230819",
-        time: "9.30 AM",
+        time: "09:30",
         description: "Random text about the exercise, location and such.",
     },
     {
         id: 5,
-        title: "Group Training",
+        title: "Cardio",
         day: "Sunday",
         date: "20230819",
-        time: "10.50 AM",
+        time: "14:00",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -64,16 +64,16 @@ let activities = [
         title: "Cardio",
         day: "Thursday",
         date: "20230819",
-        time: "1.30 PM",
+        time: "13:30",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
     {
         id: 7,
-        title: "Advanced Yoga",
+        title: "Karma Yoga",
         day: "Monday",
         date: "20230819",
-        time: "11 AM",
+        time: "11:00",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -82,7 +82,7 @@ let activities = [
         title: "Boxing",
         day: "Wednesday",
         date: "20230819",
-        time: "5.15 PM",
+        time: "17:15",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -91,7 +91,7 @@ let activities = [
         title: "Boxing",
         day: "Saturday",
         date: "20230819",
-        time: "5.15 PM",
+        time: "17:15",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -100,7 +100,7 @@ let activities = [
         title: "Yoga",
         day: "Saturday",
         date: "20230819",
-        time: "5.15 PM",
+        time: "18:15",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -109,7 +109,7 @@ let activities = [
         title: "Swimming",
         day: "Saturday",
         date: "20230819",
-        time: "5.15 PM",
+        time: "19:00",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -118,7 +118,7 @@ let activities = [
         title: "Boxing",
         day: "Friday",
         date: "20230819",
-        time: "5.15 PM",
+        time: "17:15",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -127,7 +127,7 @@ let activities = [
         title: "Boxing",
         day: "Tuesday",
         date: "20230819",
-        time: "5.15 PM",
+        time: "17:15",
         coach: "Strongy McStrong",
         description: "Random text about the exercise, location and such.",
     },
@@ -157,11 +157,24 @@ createServer({
             return { activity: attrs };
         });
 
+        this.post("/user/booking", (schema, request) => {
+            let attrs = JSON.parse(request.requestBody);
+            console.log(attrs);
+            users.activities?.push(attrs);
+            console.log(users)
+            return { activity: attrs }
+        })
+
+        this.get("/user/booking", () => {
+            console.log(users)
+            return users;
+        })
+
         this.get("/admin/users", () => {
             return users;
         });
 
-        this.get("admin/activities", () => {
+        this.get("/admin/activities", () => {
             return activities;
         });
     },
