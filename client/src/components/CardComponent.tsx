@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Button } from "../styles/styles";
 import PopUpComponent from "./abstracts/PopUpComponent";
 import { Activity } from "../types/Activity";
 
@@ -13,10 +12,10 @@ type CardProps = {
 };
 
 type BookingProps = {
-  title: string, 
-  time: string,
-  day: string
-}
+  title: string;
+  time: string;
+  day: string;
+};
 
 const Card = ({ title, time, description, coach, day }: CardProps) => {
   const [activePopup, setActivePopup] = useState("");
@@ -38,11 +37,11 @@ const Card = ({ title, time, description, coach, day }: CardProps) => {
     setActivePopup("");
   };
 
-  const handleBooking = async ({title, day, time}: BookingProps) => {
+  const handleBooking = async ({ title, day, time }: BookingProps) => {
     try {
       const res = await fetch("api/user/booking", {
         method: "POST",
-        body: JSON.stringify({title, day, time}),
+        body: JSON.stringify({ title, day, time }),
       });
       const json = await res.json;
       console.log(title);
@@ -50,35 +49,19 @@ const Card = ({ title, time, description, coach, day }: CardProps) => {
       console.log(err);
     }
     setConfirmPopup("");
-    setColor("rgb(24,156,245)")
+    setColor("rgb(24,156,245)");
   };
-  
+
   return (
     <div>
-      <div
-        key={title}
-        style={{
-          width: "100px",
-          height: "130px",
-          background: color,
-          padding: "5px",
-          textAlign: "center",
-          borderRadius: "7px",
-          fontSize: "0.8rem",
-          boxShadow: "2px 2px 2px gray",
-          position: "relative",
-        }}>
-        <div
-          style={{ display: "flex", flexDirection: "column", gap: "0.02em" }}>
-          <p style={{ fontWeight: "bold" }}>{title}</p>
-          <p style={{ fontSize: "1.5em" }}>{time}</p>
-          <Button
-            style={{ position: "absolute", bottom: "0%" }}
-            onClick={handleClick}>
-            Book
-          </Button>
-        </div>
-      </div>
+      <div className="card" style={{width: "9rem", margin: ".2em .2em -0.2em .2em"}}>
+    
+  <div className="card-body">
+    <h6 className="card-title">{title}</h6>
+    <p className="card-text">{time}</p>
+    <button className="btn btn-primary" onClick={handleClick}>Book</button>
+  </div>
+</div>
       <div>
         {activePopup === "SelectClass" && (
           <PopUpComponent
@@ -98,7 +81,7 @@ const Card = ({ title, time, description, coach, day }: CardProps) => {
       <div>
         {confirmPopup === "ConfirmClass" && (
           <PopUpComponent
-            onOkClick={() => handleBooking({title: title, day: day, time: time})}
+            onOkClick={() => handleBooking({ title: title, day: day, time: time })}
             onCancelClick={handleCancelClick}
             insertText={
               <div>

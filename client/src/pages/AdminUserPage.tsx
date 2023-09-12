@@ -9,11 +9,9 @@ const AdminUserPage = () => {
   useEffect(() => {
     fetch("/api/admin/users")
       .then((res) => res.json())
-      .then((json) => setUsers(json))
+      .then((json) => setUsers(json.users))
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(users);
 
   return (
     <div>

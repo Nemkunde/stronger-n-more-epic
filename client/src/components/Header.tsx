@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import gym from "../assets/gym.png";
-import  {Button} from '../styles/styles'
 
 type NavProps = {
   btnText: String;
@@ -11,10 +10,11 @@ const Header = ({ btnText }: NavProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (btnText === "Login"){
-    navigate("/login");
-    } else {
-    navigate("*")
+    if (btnText === "Login") {
+      navigate("/login");
+    } else if (btnText === "Log Out") {
+      navigate("*");
+      localStorage.removeItem("username");
     }
   };
   return (
@@ -27,36 +27,26 @@ const Header = ({ btnText }: NavProps) => {
           alignItems: "center",
           justifyContent: "space-evenly",
           marginTop: "1em",
-        }}>
-        <img
-          alt="img"
-          src={gym}
-          style={{ width: "60px", height: "60px" }}></img>
+        }}
+      >
+        <img alt="img" src={gym} style={{ width: "60px", height: "60px" }}></img>
         <h1 style={{}}>Strong'n'Epic</h1>
         <input
           placeholder="Search..."
-          style={{
-            borderRadius: "5px",
-            height: "25px",
-            width: "300px",
-            border: "1px solid gray",
-            paddingLeft: "1ems",
-          }}></input>
+          className="rounded-pill px-2 border-1 border-gray"
+          style={{ height: "25px", width: "300px" }}
+        ></input>
         <nav>
-          <ul
-            style={{
-              display: "flex",
-              listStyle: "none",
-              fontSize: "0.9rem",
-              gap: "1em",
-            }}>
+          <ul className="list-unstyled d-flex gap-3">
             <li>Home</li>
             <li>Services</li>
             <li>About us</li>
             <li>Contact</li>
           </ul>
         </nav>
-        <Button onClick={handleClick}>{btnText}</Button>
+        <button className="btn btn-primary" onClick={handleClick}>
+          {btnText}
+        </button>
       </header>
     </div>
   );

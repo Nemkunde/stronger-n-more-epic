@@ -12,7 +12,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <Header btnText={"Login"}/>
+      <Header btnText={"Login"} />
       <div
         style={{
           margin: "auto",
@@ -22,11 +22,13 @@ const LandingPage = () => {
       >
         <h1>Welcome to Strong n' Epics</h1>
         <p>Join our gym chain and get fit!</p>
-        <button onClick={handleClick}>To membership</button>
+        <button className="btn btn-primary" onClick={handleClick}>
+          To membership
+        </button>
       </div>
       <Footer />
     </>
   );
 };
 
-export default LandingPage
+export default LandingPage;
