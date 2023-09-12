@@ -14,7 +14,7 @@ const GridCard = ({ dayText, dayString }: DayProps) => {
   useEffect(() => {
     fetch('api/admin/activities')
     .then(data => data.json())
-    .then(json => setSessions(json))
+    .then(json => setSessions(json.activities))
     .catch(error => {
       console.log(error); 
     }); 

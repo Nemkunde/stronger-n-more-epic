@@ -12,7 +12,7 @@ const PopUpComponent: React.FC<PopUpProps> = ({ onOkClick, onCancelClick, insert
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
-            <p>{insertText}</p>
+            <div>{insertText}</div>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" onClick={() => onCancelClick()}>
