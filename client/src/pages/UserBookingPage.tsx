@@ -9,7 +9,7 @@ import { User } from '../types/Users';
 const UserBookingPage = () => {
   const [showBookings, setShowBookings] = useState(true);
   const [activities, setActivities] = useState<User[]>([]);
-  const [newArray, setNewArray] = useState<string[]>([]);
+  const [myBookings, setMyBookings] = useState<string[]>([]);
 
   const handleBookingClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     setShowBookings(false);
@@ -34,8 +34,8 @@ const UserBookingPage = () => {
         console.log(activity.activities);
         if (activity.activities !== undefined) {
           const session = activity.activities;
-          setNewArray(session);
-          console.log(newArray);
+          setMyBookings(session);
+          console.log(myBookings);
         }
         // setNewArray(session);
       }
@@ -51,7 +51,7 @@ const UserBookingPage = () => {
           My bookings
         </div>
         <div onClick={closeWindow}>
-        {showBookings === false && <MyBookingsComponent setActivites={newArray}/> }
+        {showBookings === false && <MyBookingsComponent setActivites={myBookings}/> }
         </div>
       </div>
       <CalenderComponent />
