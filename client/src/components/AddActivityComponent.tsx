@@ -36,54 +36,56 @@ const AddActivityComponent: React.FC<AddActivityProps> = ({ addActivity }) => {
     <div className="container mt-4">
       <h3 className="mb-5">Add Activity</h3>
       <form onSubmit={submitHandler}>
-        
-        <InputComponent label="Title" name="title" placeholderText="Enter activity name" activityValue={activity.title} handleInputChange={handleChange} />
-        <InputComponent label="Coach" name="coach" placeholderText="Enter coach name" activityValue={activity.coach} handleInputChange={handleChange} />
-        <InputComponent label="Create Date" name="created" placeholderText="YYYYMMDD" activityValue={activity.created} handleInputChange={handleChange} />
-        <InputComponent label="Day" name="day" placeholderText="Monday..." activityValue={activity.day} handleInputChange={handleChange} />
-        
-
-        <div className="mb-3">
-          <label className="form-label">Day</label>
-          <input
-            type="text"
-            className="form-control"
-            name="day"
-            placeholder="Monday..."
-            value={activity.day}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label className="form-label">Time</label>
-          <input
-            type="text"
-            className="form-control"
-            name="time"
-            placeholder="HH : MM"
-            value={activity.time}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label className="form-label">Description</label>
-          <input
-            type="text"
-            className="form-control desc-field"
-            name="description"
-            placeholder="Enter description..."
-            value={activity.description}
-            onChange={handleChange}
-          />
-        </div>
-
+        <InputComponent
+          label="Title"
+          name="title"
+          placeholderText="Enter activity name"
+          activityValue={activity.title}
+          handleInputChange={handleChange}
+        />
+        <InputComponent
+          label="Coach"
+          name="coach"
+          placeholderText="Enter coach name"
+          activityValue={activity.coach}
+          handleInputChange={handleChange}
+        />
+        <InputComponent
+          label="Create Date"
+          name="created"
+          placeholderText="YYYYMMDD"
+          activityValue={activity.created}
+          handleInputChange={handleChange}
+        />
+        <InputComponent
+          label="Day"
+          name="day"
+          placeholderText="Monday..."
+          activityValue={activity.day}
+          handleInputChange={handleChange}
+        />
+        <InputComponent
+          label="Time"
+          name="time"
+          placeholderText="HH : MM"
+          activityValue={activity.time}
+          handleInputChange={handleChange}
+        />
+        <InputComponent
+          label="Description"
+          name="description"
+          placeholderText="Enter description"
+          activityValue={activity.description}
+          handleInputChange={handleChange}
+        />
         <div className="mb-3">
           <button type="submit" className="btn btn-primary">
             Save changes
           </button>
-          <button type="reset" onClick={handleReset} className="btn btn-secondary ms-2">
+          <button
+            type="reset"
+            onClick={handleReset}
+            className="btn btn-secondary ms-2">
             Discard changes
           </button>
         </div>
