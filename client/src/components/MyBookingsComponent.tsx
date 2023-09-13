@@ -4,10 +4,11 @@ import PopUpComponent from "../components/abstracts/PopUpComponent";
 
 interface MyBookingsProps {
   userId: number;
+  closeClick: () => void; 
   // Receive the user's ID as a prop
 }
 
-const MyBookingsComponent: React.FC<MyBookingsProps> = ({ userId}) => {
+const MyBookingsComponent: React.FC<MyBookingsProps> = ({ userId, closeClick}) => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [showPopUp, setShowPopUp] = useState(false);
   const [activityIdToDelete, setActivityIdToDelete] = useState<number | null>(null);
@@ -48,16 +49,16 @@ const MyBookingsComponent: React.FC<MyBookingsProps> = ({ userId}) => {
 
   return (
     <div className="modal" style={{display: "block" }}>
-      <div className="modal-dialog modal-content modal-body">
+      <div className="modal-dialog modal-content modal-body" >
       <h2>My Bookings</h2>
       {activities.length === 0 ? (
         <p>No bookings yet.</p>
       ) : (
-        <ul>
+        <ul style={{ listStyle: "none", fontSize: "0.9em", display: "flex", flexDirection: "column"}}>
           {activities.map((activity) => (
-            <li key={activity.id}>
+            <li key={activity.id} style={{}}>
               {activity.title}, {activity.day} {activity.time}, Coach: {activity.coach}
-              <button onClick={() => openPopUp(activity.id)} className="btn btn-danger">
+              <button onClick={() => openPopUp(activity.id)} className="btn btn-danger btn-sm" style={{ margin: ".4em"}}>
                 Cancel
               </button>
             </li>
@@ -72,28 +73,14 @@ const MyBookingsComponent: React.FC<MyBookingsProps> = ({ userId}) => {
           onCancelClick={closePopUp}
         />
       )}
-      <div className="modal-footer"></div>
+      <div className="modal-footer">
+      <button type="button" className="btn btn-secondary btn-sm" onClick={closeClick}>
+              Close
+            </button>
+      </div>
       </div>
     </div>
   );
 };
 
 export default MyBookingsComponent;
-
-{/* <div className="modal" style={{ display: "block" }}>
-<div className="modal-dialog">
-  <div className="modal-content">
-    <div className="modal-body">
-      <div>{insertText}</div>
-    </div>
-    <div className="modal-footer">
-      <button type="button" className="btn btn-secondary" onClick={() => onCancelClick()}>
-        Cancel
-      </button>
-      <button type="button" className="btn btn-primary" onClick={() => onOkClick()}>
-        OK
-      </button>
-    </div>
-  </div>
-</div>
-</div> */}
