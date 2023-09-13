@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Activity } from "../types/Activity";
+import InputComponent from "./abstracts/InputComponent";
 
 interface AddActivityProps {
   addActivity: (activity: Activity) => void;
@@ -35,43 +36,12 @@ const AddActivityComponent: React.FC<AddActivityProps> = ({ addActivity }) => {
     <div className="container mt-4">
       <h3 className="mb-5">Add Activity</h3>
       <form onSubmit={submitHandler}>
-        <div className="mb-3">
-          <label className="form-label">Title</label>
-          <input
-            type="text"
-            className="form-control"
-            name="title"
-            placeholder="Enter activity name..."
-            value={activity.title}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="coach" className="form-label">
-            Coach
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="coach"
-            placeholder="Enter coach name..."
-            value={activity.coach}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label className="form-label">Create Date</label>
-          <input
-            type="text"
-            className="form-control"
-            name="created"
-            placeholder="YYYYMMDD"
-            value={activity.created}
-            onChange={handleChange}
-          />
-        </div>
+        
+        <InputComponent label="Title" name="title" placeholderText="Enter activity name" activityValue={activity.title} handleInputChange={handleChange} />
+        <InputComponent label="Coach" name="coach" placeholderText="Enter coach name" activityValue={activity.coach} handleInputChange={handleChange} />
+        <InputComponent label="Create Date" name="created" placeholderText="YYYYMMDD" activityValue={activity.created} handleInputChange={handleChange} />
+        <InputComponent label="Day" name="day" placeholderText="Monday..." activityValue={activity.day} handleInputChange={handleChange} />
+        
 
         <div className="mb-3">
           <label className="form-label">Day</label>

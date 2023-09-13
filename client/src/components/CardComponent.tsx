@@ -4,6 +4,7 @@ import PopUpComponent from "./abstracts/PopUpComponent";
 import { Activity } from "../types/Activity";
 
 type CardProps = {
+  activityId: number;
   title: string;
   time: string;
   description: string;
@@ -11,17 +12,19 @@ type CardProps = {
   day: string;
 };
 
-type BookingProps = {
-  title: string;
-  time: string;
-  day: string;
-};
+const Card = ({ activityId, title, time, description, coach, day }: CardProps) => {
+  const [userId, setUserId] = useState(null);
 
-const Card = ({ title, time, description, coach, day }: CardProps) => {
   const [activePopup, setActivePopup] = useState("");
   const [confirmPopup, setConfirmPopup] = useState("");
-  const [color, setColor] = useState("orange");
-  const [isBooked, setIsBooked] = useState(false);
+
+  //Simulate fetching user data from local storage or wherever it's stored
+  useEffect(() => {
+    const userData = localStorage.getItem("userId"); // Adjust this based on your data storage
+    if (userData) {
+      setUserId(JSON.parse(userData));
+    }
+  }, []);
 
   const handleClick: React.MouseEventHandler = (e) => {
     setActivePopup("SelectClass");
@@ -37,31 +40,33 @@ const Card = ({ title, time, description, coach, day }: CardProps) => {
     setActivePopup("");
   };
 
-  const handleBooking = async ({ title, day, time }: BookingProps) => {
+  const handleBooking = async (activityId: number) => {
     try {
-      const res = await fetch("api/user/booking", {
+      fetch(`api/user/${userId}/booking`, {
         method: "POST",
-        body: JSON.stringify({ title, day, time }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ activityId }),
       });
-      const json = await res.json;
-      console.log(title);
     } catch (err) {
       console.log(err);
     }
+
     setConfirmPopup("");
-    setColor("rgb(24,156,245)");
   };
 
   return (
     <div>
-      <div className="card" style={{width: "9rem", margin: ".2em .2em -0.2em .2em"}}>
-    
-  <div className="card-body">
-    <h6 className="card-title">{title}</h6>
-    <p className="card-text">{time}</p>
-    <button className="btn btn-primary" onClick={handleClick}>Book</button>
-  </div>
-</div>
+      <div className="card" style={{ width: "9rem", margin: ".2em .2em -0.2em .2em" }}>
+        <div className="card-body">
+          <h6 className="card-title">{title}</h6>
+          <p className="card-text">{time}</p>
+          <button className="btn btn-primary" onClick={handleClick}>
+            Book
+          </button>
+        </div>
+      </div>
       <div>
         {activePopup === "SelectClass" && (
           <PopUpComponent
@@ -81,7 +86,7 @@ const Card = ({ title, time, description, coach, day }: CardProps) => {
       <div>
         {confirmPopup === "ConfirmClass" && (
           <PopUpComponent
-            onOkClick={() => handleBooking({ title: title, day: day, time: time })}
+            onOkClick={() => handleBooking(activityId)}
             onCancelClick={handleCancelClick}
             insertText={
               <div>
@@ -101,3 +106,4 @@ const Card = ({ title, time, description, coach, day }: CardProps) => {
 };
 
 export default Card;
+

@@ -27,7 +27,7 @@ const GridCard = ({ dayText, dayString }: DayProps) => {
         {sessions?.map(({ day, title, description, coach, time, id}) => 
           (day === dayString ? 
           (<div key={id}>
-          <Card title={title} time={time} description={description} coach={coach} day={day}/></div>) : null
+          <Card activityId={0} title={title} time={time} description={description} coach={coach} day={day}/></div>) : null
         ))}
       </div>
     </>
@@ -35,15 +35,3 @@ const GridCard = ({ dayText, dayString }: DayProps) => {
 };
 
 export default GridCard;
-
-// {exportSessions().map((session) =>
-//   session.day === dayString ? (
-//     <Card
-//       title={session.title}
-//       date={session.date}
-//       time={session.time}
-//     />
-//   ) : (
-//     ""
-//   )
-// )}
