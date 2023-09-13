@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import background from "../assets/bg-gym.jpg";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -15,16 +16,19 @@ const LandingPage = () => {
       <Header btnText={"Login"} />
       <div
         style={{
-          margin: "auto",
+          height: "68.5vh",
+          // margin: "auto",
           width: "50%",
           textAlign: "center",
         }}
-      >
+      ><img src={background} alt="" style={{ width: "100vw", marginTop: "1.3em"}}/>
+      <div style={{ background: "white", width: "300px", height: "200px", position: "absolute", top: "30%", padding: "1em", borderRadius: "6px"}}>
         <h1>Welcome to Strong n' Epics</h1>
         <p>Join our gym chain and get fit!</p>
         <button className="btn btn-primary" onClick={handleClick}>
           To membership
         </button>
+        </div>
       </div>
       <Footer />
     </>

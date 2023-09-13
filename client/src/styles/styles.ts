@@ -14,3 +14,14 @@ export const Form = styled.form`
   max-width: 40%;
   margin: 0 auto;
 `;
+
+export const Ul = styled.ul`
+listStyle: "none",
+display: "flex",
+flexDirection: "column",
+gap: "1em",
+marginTop: "0",
+fontSize: "0.6em"
+`;
+
+

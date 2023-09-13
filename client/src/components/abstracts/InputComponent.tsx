@@ -6,9 +6,11 @@ type InputProps = {
     handleInputChange: any, 
     name: string,
     label: string
+    required?: string,
+    autofocus?: string
 }
 
-const InputComponent: React.FC<InputProps> = ({ label, handleInputChange, activityValue, placeholderText, name }) => {
+const InputComponent: React.FC<InputProps> = ({ label, handleInputChange, activityValue, placeholderText, name, required, autofocus }) => {
   return (
     <div className="mb-3">
           <label className="form-label">

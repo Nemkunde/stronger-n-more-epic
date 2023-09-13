@@ -50,6 +50,7 @@ const Footer = () => {
               flexDirection: "column",
               gap: "1em",
               marginTop: "0",
+              fontSize: "0.6em"
             }}
           >
             <h4>SITEMAP</h4>
@@ -67,6 +68,7 @@ const Footer = () => {
               flexDirection: "column",
               gap: "1em",
               marginTop: "0",
+              fontSize: "0.6em"
             }}
           >
             <h4>SERVICES</h4>
@@ -83,6 +85,7 @@ const Footer = () => {
               flexDirection: "column",
               gap: "1em",
               marginTop: "0",
+              fontSize: "0.6em"
             }}
           >
             <h4>HELP</h4>

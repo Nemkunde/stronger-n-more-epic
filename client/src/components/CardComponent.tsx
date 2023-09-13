@@ -1,7 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PopUpComponent from "./abstracts/PopUpComponent";
-import { Activity } from "../types/Activity";
+import { User } from "../types/Users";
 
 type CardProps = {
   activityId: number;
@@ -12,17 +11,26 @@ type CardProps = {
   day: string;
 };
 
-const Card = ({ activityId, title, time, description, coach, day }: CardProps) => {
-  const [userId, setUserId] = useState(null);
+type BookingProps = {
+  activityId: number;
+  title: string;
+  time: string;
+  day: string;
+};
 
+const Card = ({ activityId, title, time, description, coach, day }: CardProps) => {
+  const [user, setUser] = useState<User | null>(null);
   const [activePopup, setActivePopup] = useState("");
   const [confirmPopup, setConfirmPopup] = useState("");
 
-  //Simulate fetching user data from local storage or wherever it's stored
   useEffect(() => {
-    const userData = localStorage.getItem("userId"); // Adjust this based on your data storage
-    if (userData) {
-      setUserId(JSON.parse(userData));
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      // Fetch the complete user object based on the user ID
+      fetch(`/api/user/${userId}`)
+        .then((res) => res.json())
+        .then((json) => setUser(json.user))
+        .catch((err) => console.error(err));
     }
   }, []);
 
@@ -30,30 +38,38 @@ const Card = ({ activityId, title, time, description, coach, day }: CardProps) =
     setActivePopup("SelectClass");
   };
 
-  const handleOKClick = () => {
+  const handleOKClick = async () => {
     setActivePopup("");
-    setConfirmPopup("ConfirmClass");
-  };
 
-  const handleCancelClick = () => {
-    window.location.reload();
-    setActivePopup("");
-  };
-
-  const handleBooking = async (activityId: number) => {
-    try {
-      fetch(`api/user/${userId}/booking`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ activityId }),
-      });
-    } catch (err) {
-      console.log(err);
+    if (user !== null) {
+      await bookActivity(activityId);
     }
 
     setConfirmPopup("");
+  };
+
+  const handleCancelClick = () => {
+    setActivePopup("");
+    setConfirmPopup("");
+  };
+
+  const bookActivity = async (activityId: number) => {
+    try {
+      if (user) {
+        // Send the activityId to the server for booking
+        const response = await fetch(`/api/user/${user.id}/bookings`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ activityId }), // Send the activityId in the request body
+        });
+
+        setActivePopup("");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -86,7 +102,7 @@ const Card = ({ activityId, title, time, description, coach, day }: CardProps) =
       <div>
         {confirmPopup === "ConfirmClass" && (
           <PopUpComponent
-            onOkClick={() => handleBooking(activityId)}
+            onOkClick={() => user !== null && bookActivity(activityId)}
             onCancelClick={handleCancelClick}
             insertText={
               <div>
@@ -106,4 +122,3 @@ const Card = ({ activityId, title, time, description, coach, day }: CardProps) =
 };
 
 export default Card;
-

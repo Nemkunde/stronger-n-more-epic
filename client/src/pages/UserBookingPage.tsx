@@ -17,17 +17,23 @@ const UserBookingPage = () => {
     }
   }, []);
 
+  const ClosePopUp: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if(showBookings === true) {
+    setShowBookings(false)
+  }
+  }
+
   const handleBookingClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     setShowBookings(!showBookings); // Toggle the showBookings state
   };
   return (
     <div>
       <Header btnText={"Log Out"} />
-      <div className="container">
+      <div className="container" onClick={ClosePopUp}>
         <div className="my-3 btn btn-primary me-2" onClick={handleBookingClick}>
           My bookings
         </div>
-        {showBookings && userId && <MyBookingsComponent />}
+        {showBookings && userId && <MyBookingsComponent userId={userId} />}
       </div>
       <CalenderComponent />
       <Footer />
