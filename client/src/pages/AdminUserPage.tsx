@@ -1,9 +1,11 @@
+// @ts-check
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import { User } from "../types/Users";
 
-const AdminUserPage = () => {
+const AdminUserPage: React.FC = () => { //ts update function component
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
