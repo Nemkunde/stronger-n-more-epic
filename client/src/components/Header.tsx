@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import gym from "../assets/gymlogo.png";
 
 type NavProps = {
-  btnText: String;
+  btnText: string;
 };
 
-const Header = ({ btnText }: NavProps) => {
+const Header: React.FC<NavProps> = ({ btnText }: NavProps) => { // ts update o specify that Header is a functional component that receives NavProps as its props
   const navigate = useNavigate();
 
   const handleClick = () => {
