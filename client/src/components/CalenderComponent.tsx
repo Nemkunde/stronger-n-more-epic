@@ -1,7 +1,7 @@
 import React from "react";
 import GridCard from "./GridCardComponent";
 
-const CalenderComponent: React.FC = () => {
+const CalenderComponent: React.FC = () => { // ts update to show that no props are recieved
     return (
       <div
         style={{
