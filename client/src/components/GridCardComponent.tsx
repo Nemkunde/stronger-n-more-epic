@@ -1,3 +1,5 @@
+// @ts-check
+
 import Card from "./CardComponent";
 import React, { useEffect, useState } from "react";
 import { Activity } from "../types/Activity";
@@ -7,7 +9,7 @@ type DayProps = {
   dayString: string;
 };
 
-const GridCard = ({ dayText, dayString }: DayProps) => {
+const GridCard: React.FC<DayProps>= ({ dayText, dayString }: DayProps) => { // ts update to specify functional component that receives DayProps as its props
   const [sessions, setSessions] = useState<Activity[]>([]);
 
   useEffect(() => {
