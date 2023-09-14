@@ -1,3 +1,5 @@
+// @ts-check
+
 import React, { useState, useEffect } from "react";
 import { Activity } from "../types/Activity";
 import PopUpComponent from "../components/abstracts/PopUpComponent";
