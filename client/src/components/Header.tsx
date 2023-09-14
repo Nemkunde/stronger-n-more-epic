@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import gym from "../assets/gymlogo.png";

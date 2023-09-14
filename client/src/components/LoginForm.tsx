@@ -1,3 +1,5 @@
+// @ts-check
+
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
 // Define the interface for the login form props
