@@ -1,3 +1,5 @@
+// @ts-check
+
 import React, { useState, FormEvent, ChangeEvent } from "react";
 
 // Define the interface for the register form props
