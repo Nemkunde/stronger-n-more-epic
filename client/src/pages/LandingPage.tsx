@@ -1,10 +1,12 @@
+// @ts-check
+
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import background from "../assets/bg-gym.jpg";
 
-const LandingPage = () => {
+const LandingPage: React.FC = () => { //ts update funtional component
   const navigate = useNavigate();
 
   const handleClick = () => {
