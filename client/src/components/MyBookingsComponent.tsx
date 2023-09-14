@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Activity } from "../types/Activity";
 import PopUpComponent from "../components/abstracts/PopUpComponent";
+import { type } from "@testing-library/user-event/dist/type";
 
-interface MyBookingsProps {
-  userId: number;
-  closeClick: () => void; 
-  // Receive the user's ID as a prop
+type MyBookingsProps = {
+  userId: number,
+  closeClick: () => void// Receive the user's ID as a prop
 }
 
-const MyBookingsComponent: React.FC<MyBookingsProps> = ({ userId, closeClick}) => {
+const MyBookingsComponent: React.FC<MyBookingsProps> = ({ userId , closeClick }) => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [showPopUp, setShowPopUp] = useState(false);
   const [activityIdToDelete, setActivityIdToDelete] = useState<number | null>(null);
@@ -54,10 +54,14 @@ const MyBookingsComponent: React.FC<MyBookingsProps> = ({ userId, closeClick}) =
       {activities.length === 0 ? (
         <p>No bookings yet.</p>
       ) : (
-        <ul style={{ listStyle: "none", fontSize: "0.9em", display: "flex", flexDirection: "column"}}>
+        <ul className="list-group" style={{ listStyle: "none", fontSize: "0.9em", display: "flex", flexDirection: "column"}}>
           {activities.map((activity) => (
-            <li key={activity.id} style={{}}>
-              {activity.title}, {activity.day} {activity.time}, Coach: {activity.coach}
+            <li key={activity.id} className="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <strong>{activity.title}</strong>
+                <br />
+                {activity.day} {activity.time}, Coach: {activity.coach}
+              </div>
               <button onClick={() => openPopUp(activity.id)} className="btn btn-danger btn-sm" style={{ margin: ".4em"}}>
                 Cancel
               </button>

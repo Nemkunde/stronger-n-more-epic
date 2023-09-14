@@ -10,7 +10,7 @@ const Footer = () => {
       <footer
         className="footer-container"
         style={{
-          position: "sticky",
+          position: "fixed",
           bottom: 0,
           right: 0,
           left: 0,
@@ -39,9 +39,10 @@ const Footer = () => {
               boxShadow: "2px 2px 2px #454545",
             }}
           ></img>
-          <p className="footer-company-info">This is a short company description.</p>
+          <p style={{ fontSize: "0.8em"}}>This is a short company description.</p>
           <p style={{ position: "absolute", bottom: 0, left: "2em" }}>@Strong'n'Epic 2023</p>
         </div>
+        <div style={{ display: "flex", gap: "5em"}}>
         <div>
           <ul
             style={{
@@ -50,10 +51,10 @@ const Footer = () => {
               flexDirection: "column",
               gap: "1em",
               marginTop: "0",
-              fontSize: "0.6em"
+              fontSize: "0.7em"
             }}
           >
-            <h4>SITEMAP</h4>
+            <h5>SITEMAP</h5>
             <li>About us</li>
             <li>Services</li>
             <li>Blog</li>
@@ -68,10 +69,10 @@ const Footer = () => {
               flexDirection: "column",
               gap: "1em",
               marginTop: "0",
-              fontSize: "0.6em"
+              fontSize: "0.7em"
             }}
           >
-            <h4>SERVICES</h4>
+            <h5>SERVICES</h5>
             <li>Pricing</li>
             <li>Features</li>
             <li>Customers</li>
@@ -85,10 +86,10 @@ const Footer = () => {
               flexDirection: "column",
               gap: "1em",
               marginTop: "0",
-              fontSize: "0.6em"
+              fontSize: "0.7em"
             }}
           >
-            <h4>HELP</h4>
+            <h5>HELP</h5>
             <li>Getting started</li>
             <li>Network status</li>
             <li>FAQs</li>
@@ -99,6 +100,7 @@ const Footer = () => {
           <img src={facebook} alt="" style={{ height: "25px", width: "25px" }} />
           <img src={twitter} alt="" style={{ height: "25px", width: "25px" }} />
           <img src={instagram} alt="" style={{ height: "25px", width: "25px" }} />
+        </div>
         </div>
       </footer>
     </div>

@@ -17,17 +17,31 @@ const LandingPage = () => {
       <div
         style={{
           height: "68.5vh",
-          // margin: "auto",
           width: "50%",
           textAlign: "center",
-        }}
-      ><img src={background} alt="" style={{ width: "100vw", marginTop: "1.3em"}}/>
-      <div style={{ background: "white", width: "300px", height: "200px", position: "absolute", top: "30%", padding: "1em", borderRadius: "6px"}}>
-        <h1>Welcome to Strong n' Epics</h1>
-        <p>Join our gym chain and get fit!</p>
-        <button className="btn btn-primary" onClick={handleClick}>
-          To membership
-        </button>
+        }}>
+        <img
+          src={background}
+          alt=""
+          style={{ width: "100vw", marginTop: "1.3em" }}
+        />
+        <div
+          style={{
+            background: "white",
+            width: "300px",
+            height: "225px",
+            position: "absolute",
+            top: "45%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            padding: "1em",
+            borderRadius: "6px",
+          }}>
+          <h1>Welcome to Strong n' Epics</h1>
+          <p>Join our gym chain and get fit!</p>
+          <button className="btn btn-primary" onClick={handleClick}>
+            To membership
+          </button>
         </div>
       </div>
       <Footer />

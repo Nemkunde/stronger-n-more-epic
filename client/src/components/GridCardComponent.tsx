@@ -1,5 +1,5 @@
 import Card from "./CardComponent";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Activity } from "../types/Activity";
 
 type DayProps = {
@@ -21,7 +21,7 @@ const GridCard = ({ dayText, dayString }: DayProps) => {
 
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "5px"}}>
         <p style={{ textAlign: "center" }}>{dayText}</p>
         {sessions?.map(({ day, title, description, coach, time, id }) =>
           day === dayString ? (
