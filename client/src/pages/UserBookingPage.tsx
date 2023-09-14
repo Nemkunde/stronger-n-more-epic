@@ -1,3 +1,5 @@
+// @ts-check
+
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -5,9 +7,9 @@ import CalenderComponent from "../components/CalenderComponent";
 import { useState, useEffect } from "react";
 import MyBookingsComponent from "../components/MyBookingsComponent";
 
-const UserBookingPage = () => {
+const UserBookingPage: React.FC = () => { //ts update functional component
   const [showBookings, setShowBookings] = useState(false);
-  const [userId, setUserId] = useState(null); // Store user information here
+  const [userId, setUserId] = useState<number | null>(null); // Store user information here // ts update number
 
   //Simulate fetching user data from local storage or wherever it's stored
   useEffect(() => {
