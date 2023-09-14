@@ -1,3 +1,5 @@
+// @ts-check
+
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Activity } from "../types/Activity";
 import InputComponent from "./abstracts/InputComponent";
