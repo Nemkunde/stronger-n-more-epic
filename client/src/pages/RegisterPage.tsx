@@ -1,3 +1,5 @@
+// @ts-check
+
 import { useState } from "react";
 import RegisterForm from "../components/RegisterForm";
 import Header from "../components/Header";
