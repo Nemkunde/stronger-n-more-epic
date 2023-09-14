@@ -1,3 +1,5 @@
+// @ts-check
+
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,7 +12,7 @@ import PopUpComponent from "../components/abstracts/PopUpComponent";
 const AdminPage = () => {
   const navigate = useNavigate();
 
-  const [showPopUp, setShowPopUp] = useState(false);
+  const [showPopUp, setShowPopUp] = useState<boolean>(false); // ts update: boolean
 
   const handleAddActivity = async (activity: Activity) => {
     try {
