@@ -1,15 +1,15 @@
 // @ts-check
 
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent } from 'react'; // imported ChangeEvent from 'react' to specify the event type for the handleInputChange function.
 
 type InputProps = {
   placeholderText: string;
   activityValue: string;
-  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void; //updated prop type to use ChangeEvent<HTMLInputElement> to specify the event type more
   name: string;
   label: string;
-  required?: boolean;
-  autofocus?: boolean;
+  required?: boolean; //changed into booleans
+  autofocus?: boolean; //changed into booleans
 };
 
 const InputComponent: React.FC<InputProps> = ({
