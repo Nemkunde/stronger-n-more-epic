@@ -1,3 +1,5 @@
+// @ts-check
+
 import React, { FC, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,7 +8,7 @@ import { Activity } from "../types/Activity";
 
 const AdminActivityPage: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
-  const [showPopUp, setShowPopUp] = useState(false); // State for POP UP visibility
+  const [showPopUp, setShowPopUp] = useState<boolean>(false); // State for POP UP visibility // ts update: boolean
   const [activityToDelete, setActivityToDelete] = useState<number | null>(null); // State to store the ID of the activity to delete
 
   useEffect(() => {
