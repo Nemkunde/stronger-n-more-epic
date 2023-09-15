@@ -1,3 +1,5 @@
+// @ts-check
+
 export interface Activity {
   id: number;
   title: string;
