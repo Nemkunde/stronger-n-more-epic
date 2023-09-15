@@ -1,3 +1,5 @@
+// @ts-check
+
 import { Activity } from "./Activity";
 
 export interface User {
