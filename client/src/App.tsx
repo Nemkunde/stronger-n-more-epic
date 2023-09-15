@@ -1,6 +1,9 @@
+// @ts-check
+
 import React from "react";
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+//import { createBrowserRouter, RouterProvider } from "react-router-dom"; not standard components provided byu react router
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
@@ -11,7 +14,26 @@ import AdminActivityPage from "./pages/AdminActivityPage";
 
 // react router dom <--
 
-const routes = [
+
+const App: React.FC = () => { // ts update functional component and routes rapped in a Routes component
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/userbooking" element={<UserBookingPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="admin/user" element={<AdminUserPage />} />
+        <Route path="admin/activity" element={<AdminActivityPage />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
+
+/*const routes = [
   {
     path: "*",
     element: <LandingPage />,
@@ -46,4 +68,4 @@ function App() {
   return <RouterProvider router={createBrowserRouter(routes)} />;
 }
 
-export default App;
+export default App;*/
